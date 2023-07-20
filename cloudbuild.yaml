@@ -10,6 +10,6 @@ steps:
         "run",
         "deploy",
         "ci-cd-gcp",
-        "--region=asia-southeast2",
+        "--region=us-central1",
         "--image=gcr.io/alvi-project-393409/ci-cd-gcp:$COMMIT_SHA",
       ]
