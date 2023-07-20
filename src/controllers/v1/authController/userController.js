@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const { User, IP_Address } = require("../../models/v1");
+const { User, IP_Address } = require("../../../models/v1");
 
 exports.createUser = async (req, res) => {
   const { first_name, last_name, birthdate, phone_number, email, password } =

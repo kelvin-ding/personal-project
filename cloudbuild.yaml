@@ -1,0 +1,15 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      ["build", "-t", "gcr.io/alvi-project-393409/ci-cd-gcp:$COMMIT_SHA", "."]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/alvi-project-393409/ci-cd-gcp:$COMMIT_SHA"]
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "run",
+        "deploy",
+        "ci-cd-gcp",
+        "--region=asia-southeast2",
+        "--image=gcr.io/alvi-project-393409/ci-cd-gcp:$COMMIT_SHA",
+      ]
